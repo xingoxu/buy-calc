@@ -18,7 +18,7 @@ and it will start live development.
 
 ##ChangeLog
 
-[At Here](https://github.com/xingoxu/works/blob/master/buy-calc/changelog.md)
+[At Here](https://github.com/xingoxu/buy-calc/blob/master/changelog.md)
 
 ## Contact
 

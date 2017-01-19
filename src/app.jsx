@@ -264,9 +264,9 @@ var MainApp = React.createClass({
       <footer>
         <span>© {(new Date()).getFullYear()}</span>
         <span> xingo | </span>
-        <a href="https://github.com/xingoxu/works/tree/master/buy-calc">GitHub Repo</a>
+        <a href="https://github.com/xingoxu/buy-calc">GitHub Repo</a>
         <span> | </span>
-        <a href="https://github.com/xingoxu/works/blob/master/buy-calc/changelog.md">更新日志</a>
+        <a href="https://github.com/xingoxu/buy-calc/blob/master/changelog.md">更新日志</a>
       </footer>
     </div>
   }
