@@ -1,3 +1,6 @@
+import ShoppingCartSite from './ShoppingCartSite.jsx';
+import React from 'react';
+
 //购物车框架
 var ShoppingCart = React.createClass({
   handleDeleteItem: function (index) {
@@ -31,3 +34,5 @@ var ShoppingCart = React.createClass({
     </div>
   }
 });
+
+export default ShoppingCart;

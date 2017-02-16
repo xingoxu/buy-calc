@@ -210,10 +210,10 @@ button, input, select, textarea {
         background-color: transparent;
       }
       .edit {
-        background-image: data-uri('../edit.png');
+        background-image: url('~assets/edit.png');
       }
       .reload {
-        background-image: data-uri('../reload.png');
+        background-image: url('~assets/reload.png');
         &.loading {
           .keyframes(exchange-loading,{
               from {
@@ -235,7 +235,7 @@ button, input, select, textarea {
     }
     .editor {
       button {
-        background-image: data-uri('../check.png');
+        background-image: data-uri('~assets/check.png');
       }
       input[type=text]{
         line-height: 14px;
@@ -575,5 +575,5 @@ footer {
 }
 //多说end
 
-@import 'mobile';
-@import 'duoshuo';
+@import 'includes/mobile';
+@import 'includes/duoshuo';

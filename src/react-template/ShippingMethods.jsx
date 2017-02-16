@@ -1,3 +1,5 @@
+import React from 'react';
+import { realTimeStorage } from '../js/data.js';
 //国际运输方法
 var ShippingMethods = React.createClass({
   getInitialState: function () {
@@ -61,3 +63,5 @@ var ShippingMethods = React.createClass({
     </div>
   }
 });
+
+export default ShippingMethods;

@@ -1,3 +1,5 @@
+import React from 'react';
+import { getRealItem } from '../js/data.js';
 //购物车站点（由运输方法分类）
 var ShoppingCartSite = React.createClass({//虽然是Site但以物流的方式分类
   getRealItem: getRealItem,
@@ -92,3 +94,5 @@ var ShoppingCartSite = React.createClass({//虽然是Site但以物流的方式�
     </ul>;
   }
 });
+
+export default ShoppingCartSite;

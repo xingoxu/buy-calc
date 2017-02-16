@@ -1,21 +1,10 @@
-//存储不同方法的实时价格
-var realTimeStorage = {};//{ methodid: {japanShipment: japanShipment}}
+import { app, realTimeStorage } from './js/data.js';
+import './less/base.less';
+import ShoppingSite from './react-template/ShoppingSite.jsx';
+import ShoppingCart from './react-template/ShoppingCart.jsx';
 
-//ShoppingSite与ShoppingCartSite通用
-//计算物品在当前站点的重量并得到一个Copy
-function getRealItem(item) {
-  var itemCopy = {};
-  for (var key in item) {
-    if (item.hasOwnProperty(key)) {
-      itemCopy[key]=item[key];
-    }
-  }
-  //获得网站特定item
-  //获得计算重量
-  itemCopy.weight = this.props.site.weightCalc(itemCopy.weight);
-  return itemCopy;
-}
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 var MainApp = React.createClass({
   getInitialState: function () {
     return {
@@ -102,7 +91,9 @@ var MainApp = React.createClass({
     // this.refs.shoppingCart.forceUpdate();//设置了state就不需要再forceUpdate了
 
     //滚到cart部分
-    $(window).scrollTop($('#shopping-cart').offset().top);
+    setTimeout(() => {
+      document.getElementsByTagName('body')[0].scrollTop = document.getElementById('shopping-cart').offsetTop;      
+    }, 100);
   },
   switchItemInput: function (event) {
     var isOpen = 'open';
@@ -161,7 +152,7 @@ var MainApp = React.createClass({
     return <div className="app-wrapper">
       <div className="top">
         <div className="app-title">
-          <img src="dist/title-pic.jpg"></img>
+          <img src={ require("assets/title-pic.jpg") }></img>
           <h1>日系剁手网站<br />综合价格对比工具</h1>
         </div>
         <div className="center-exchange-wrapper pull-right">
@@ -208,8 +199,8 @@ var MainApp = React.createClass({
             <ul>
             {//选择物品种类
               this.props.app.itemKinds.map(function (itemKind) {
-                return <li>
-                  <label key={itemKind.id}>
+                return <li key={itemKind.id}>
+                  <label>
                     <input type="radio" name="itemKind" value={itemKind.id}  defaultChecked={item.itemKind==itemKind.id}/>{itemKind.name}
                   </label>
                 </li>
@@ -229,8 +220,8 @@ var MainApp = React.createClass({
           <h3>快速跳转商家</h3>
           <div className="inputs">
             {
-              this.props.app.shoppingSite.map(function (site) {
-                return <a href={'#'+site.name}>{site.name}</a>
+              this.props.app.shoppingSite.map(function (site,index) {
+                return <a href={'#' + site.name} key={index}>{site.name}</a>
               })
             }
           </div>

@@ -1,3 +1,6 @@
+import ShippingMethods from './ShippingMethods.jsx';
+import React from 'react';
+import { getRealItem } from '../js/data.js';
 //购物网站
 var ShoppingSite = React.createClass({
   getRealItem: getRealItem,
@@ -99,3 +102,5 @@ var ShoppingSite = React.createClass({
       </li>
   }
 });
+
+export default ShoppingSite;

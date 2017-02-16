@@ -1033,11 +1033,46 @@ var app={
   cart:[],
 };
 
+import fetchJsonp from 'fetch-jsonp';
 app.ajax_load_exchange = function () {
-  return $.ajax({
-    url: 'https://api.fixer.io/latest?base=JPY&symbols=CNY',
-    dataType: 'jsonp',
-    jsonpCallback: 'app.set_exchange',
-    timeout: 5000,
-  });
+  app.exchange = 0;
+  let isAborted = false;
+  let promise = fetchJsonp('https://api.fixer.io/latest?base=JPY&symbols=CNY')
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      if (isAborted)
+        return;  
+      return app.set_exchange(json);
+    })
+    .catch(() => {
+      app.exchange = 0;
+    });
+  return {
+    promise: promise,
+    abort() {
+      isAborted = true;
+    }
+  };
 };
+
+
+//ShoppingSite与ShoppingCartSite通用
+//计算物品在当前站点的重量并得到一个Copy
+function getRealItem(item) {
+  var itemCopy = {};
+  for (var key in item) {
+    if (item.hasOwnProperty(key)) {
+      itemCopy[key]=item[key];
+    }
+  }
+  //获得网站特定item
+  //获得计算重量
+  itemCopy.weight = this.props.site.weightCalc(itemCopy.weight);
+  return itemCopy;
+}
+//存储不同方法的实时价格
+var realTimeStorage = {};//{ methodid: {japanShipment: japanShipment}}
+
+export { app, getRealItem, realTimeStorage };
