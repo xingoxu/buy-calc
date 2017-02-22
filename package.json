@@ -25,7 +25,10 @@
     "ora": "^1.1.0",
     "path": "latest",
     "url-loader": "^0.5.7",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "browser-sync-webpack-plugin": "^1.1.4"
   },
   "dependencies": {
     "fetch-jsonp": "^1.0.6",
