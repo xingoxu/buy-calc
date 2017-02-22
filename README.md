@@ -7,8 +7,7 @@ Now available at http://works.xingoxu.com/buy-calc/
 ## Start
 
 ```
-npm install
-npm start
+npm install && npm run dev
 ```
 and it will start live development.
 
